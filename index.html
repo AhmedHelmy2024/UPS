@@ -110,7 +110,21 @@
         ctx.font = "40px 'ArbFONTS-GE_SS_TWO_MEDIUM'";
         ctx.fillStyle = "#000000";
         ctx.textAlign = "center";
-        ctx.fillText(name, textX, textY);
+// تحقق من اللغة المدخلة (عربية أو إنجليزية)
+var isArabic = /[\u0600-\u06FF]/.test(name);
+
+// إذا كانت اللغة عربية، نضع المحاذاة إلى اليمين
+if (isArabic) {
+  ctx.textAlign = "right";
+} else {
+  // إذا كانت اللغة إنجليزية، نضع المحاذاة إلى الوسط
+  ctx.textAlign = "center";
+}
+
+// إضافة النص إلى الصورة
+ctx.font = "40px 'ArbFONTS-GE_SS_TWO_MEDIUM'";
+ctx.fillStyle = "#000000";
+ctx.fillText(name, textX, textY);
 
 
 
@@ -146,7 +160,21 @@
         ctx.font = "40px 'ArbFONTS-GE_SS_TWO_MEDIUM'";
         ctx.fillStyle = "000000";
         ctx.textAlign = "center";
-        ctx.fillText(name, textX, textY);
+// تحقق من اللغة المدخلة (عربية أو إنجليزية)
+var isArabic = /[\u0600-\u06FF]/.test(name);
+
+// إذا كانت اللغة عربية، نضع المحاذاة إلى اليمين
+if (isArabic) {
+  ctx.textAlign = "right";
+} else {
+  // إذا كانت اللغة إنجليزية، نضع المحاذاة إلى الوسط
+  ctx.textAlign = "center";
+}
+
+// إضافة النص إلى الصورة
+ctx.font = "40px 'ArbFONTS-GE_SS_TWO_MEDIUM'";
+ctx.fillStyle = "#000000";
+ctx.fillText(name, textX, textY);
 
 
 
