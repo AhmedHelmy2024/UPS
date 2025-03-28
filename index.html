@@ -72,10 +72,6 @@
   <div class="button-container">
     <select id="imageSelect">
       <option value="template/EID1.png">بطاقة معايدة </option>
-   
-
-
-      <!-- يمكنك إضافة خيارات أخرى هنا -->
     </select>
     <input type="text" id="nameInput" placeholder="اكتب اسمك">
     <button onclick="previewImage()">تأكيد الاسم</button>
@@ -106,27 +102,23 @@
         var textX = canvas.width / 2; // الموضع الأفقي (بالوسط)
         var textY = 1418; // المسافة من الأعلى بالبكسل
 
+        // تحقق من اللغة المدخلة (عربية أو إنجليزية)
+        var isArabic = /[\u0600-\u06FF]/.test(name);
+
+        // إذا كانت اللغة عربية، نضع المحاذاة إلى اليمين
+        if (isArabic) {
+          ctx.textAlign = "right"; // محاذاة لليمين للنصوص العربية
+          textX = canvas.width - 20; // تحديد المسافة من اليمين
+        } else {
+          // إذا كانت اللغة إنجليزية، نضع المحاذاة إلى الوسط
+          ctx.textAlign = "center"; // محاذاة للنصوص الإنجليزية إلى المركز
+          textX = canvas.width / 2; // تحديد مركز النص
+        }
+
         // إضافة النص إلى الصورة
         ctx.font = "40px 'ArbFONTS-GE_SS_TWO_MEDIUM'";
         ctx.fillStyle = "#000000";
-        ctx.textAlign = "center";
-// تحقق من اللغة المدخلة (عربية أو إنجليزية)
-var isArabic = /[\u0600-\u06FF]/.test(name);
-
-// إذا كانت اللغة عربية، نضع المحاذاة إلى اليمين
-if (isArabic) {
-  ctx.textAlign = "right";
-} else {
-  // إذا كانت اللغة إنجليزية، نضع المحاذاة إلى الوسط
-  ctx.textAlign = "center";
-}
-
-// إضافة النص إلى الصورة
-ctx.font = "40px 'ArbFONTS-GE_SS_TWO_MEDIUM'";
-ctx.fillStyle = "#000000";
-ctx.fillText(name, textX, textY);
-
-
+        ctx.fillText(name, textX, textY);
 
         // إضافة الصورة إلى المعاينة
         previewDiv.innerHTML = '';
@@ -156,27 +148,23 @@ ctx.fillText(name, textX, textY);
         var textX = canvas.width / 2; // الموضع الأفقي (بالوسط)
         var textY = 1418; // المسافة من الأعلى بالبكسل
 
+        // تحقق من اللغة المدخلة (عربية أو إنجليزية)
+        var isArabic = /[\u0600-\u06FF]/.test(name);
+
+        // إذا كانت اللغة عربية، نضع المحاذاة إلى اليمين
+        if (isArabic) {
+          ctx.textAlign = "right"; // محاذاة لليمين للنصوص العربية
+          textX = canvas.width - 20; // تحديد المسافة من اليمين
+        } else {
+          // إذا كانت اللغة إنجليزية، نضع المحاذاة إلى الوسط
+          ctx.textAlign = "center"; // محاذاة للنصوص الإنجليزية إلى المركز
+          textX = canvas.width / 2; // تحديد مركز النص
+        }
+
         // إضافة النص إلى الصورة
         ctx.font = "40px 'ArbFONTS-GE_SS_TWO_MEDIUM'";
-        ctx.fillStyle = "000000";
-        ctx.textAlign = "center";
-// تحقق من اللغة المدخلة (عربية أو إنجليزية)
-var isArabic = /[\u0600-\u06FF]/.test(name);
-
-// إذا كانت اللغة عربية، نضع المحاذاة إلى اليمين
-if (isArabic) {
-  ctx.textAlign = "right";
-} else {
-  // إذا كانت اللغة إنجليزية، نضع المحاذاة إلى الوسط
-  ctx.textAlign = "center";
-}
-
-// إضافة النص إلى الصورة
-ctx.font = "40px 'ArbFONTS-GE_SS_TWO_MEDIUM'";
-ctx.fillStyle = "#000000";
-ctx.fillText(name, textX, textY);
-
-
+        ctx.fillStyle = "#000000";
+        ctx.fillText(name, textX, textY);
 
         // تحويل الصورة والنص إلى بيانات URL
         var dataURL = canvas.toDataURL("image/png");
